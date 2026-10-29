@@ -91,6 +91,7 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .callout-watch .callout-label { color: #c17510; }
 .lab-body .step-screenshot { display: block; max-width: 420px; width: 100%; margin: 8px 0 14px 12px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .lab-body .step-screenshot-caption { font-size: 12px; color: #777; margin: -8px 0 14px 12px; font-style: italic; }
+.lab-body .step-screenshot-icon { display: block; width: 56px; max-width: 56px; margin: 8px 0 14px 12px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; padding: 6px; }
 /* Placeholder / TBD card */
 .lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
 .tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
@@ -202,11 +203,17 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="step"><span class="step-num">1.</span><span>Open the <strong>Setup Menu</strong> and click <strong>Agentforce Vibes</strong>.</span></div>
       <img class="step-screenshot" src="assets/images/lab1-setup-menu.png" alt="Setup Menu dropdown open, with the Agentforce Vibes option highlighted below Your Account">
       <p class="step-screenshot-caption">The gear/lightning icon in the top app bar opens the Setup Menu. Agentforce Vibes is listed below Your Account.</p>
-      <div class="step"><span class="step-num">2.</span><span>Accept the <strong>Terms and Conditions</strong>.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>It will take a few minutes for Agentforce Vibes to fully initialize. A Salesforce DX project will be automatically created for you and your org will be authorized by default.</div>
+      <div class="step"><span class="step-num">2.</span><span>If prompted with a "Do you trust the authors of the files in this folder?" dialog, select <strong>Yes, I trust the authors</strong>.</span></div>
+      <img class="step-screenshot" src="assets/images/lab1-trust-authors-dialog.png" alt="Do you trust the authors of the files in this folder dialog, with Yes, I trust the authors button highlighted">
+      <p class="step-screenshot-caption">This appears the first time the IDE opens your new DX project folder.</p>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>You may see a number of notifications in the bottom right of the IDE. This is where IDE or extension notifications are published. You can close any that appear on launch.</div>
       <div class="step"><span class="step-num">3.</span><span>The <strong>Agentforce Sidebar</strong> should be open by default. If it isn't, select the <strong>Agentforce Vibes Icon</strong> in the sidebar to open it.</span></div>
+      <img class="step-screenshot-icon" src="assets/images/lab1-vibes-sidebar-icon.png" alt="Agentforce Vibes bear icon as shown in the IDE activity bar">
+      <p class="step-screenshot-caption">Look for this bear icon in the activity bar along the left edge of the IDE.</p>
       <div class="step"><span class="step-num">4.</span><span>Select <strong>I agree to the terms</strong> and click <strong>Enable Agentforce</strong>.</span></div>
+      <img class="step-screenshot" src="assets/images/lab1-enable-agentforce-panel.png" alt="Agentforce Vibes panel showing the I agree to the terms checkbox and Enable Agentforce button">
+      <p class="step-screenshot-caption">The Agentforce Vibes panel, opened from the sidebar icon above.</p>
 
       <h3>Step 2: Get Familiar with the Agentforce Vibes IDE</h3>
       <div class="step"><span class="step-num">1.</span><span>Open the command palette (<code>CMD+SHIFT+P</code> on Mac or <code>CTRL+SHIFT+P</code> on PC). Use it to access Agentforce Vibes commands, SFDX commands, Lightning Preview, and project tools and utilities.</span></div>
