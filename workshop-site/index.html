@@ -251,6 +251,7 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="step"><span class="step-num">2.</span><span>You will see the list of <strong>Salesforce Servers</strong>.</span></div>
       <div class="step"><span class="step-num">3.</span><span>Open the <strong>sobject-all</strong> MCP server and click <strong>Activate</strong>.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Open the <strong>salesforce-api-context</strong> MCP server and click <strong>Activate</strong>.</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Open the <a href="https://orgfarm-5fe4cc2855.my.salesforce-setup.com/lightning/setup/McpServer/platform.headless-360/view?setup__source=PLATFORM_STANDARD_MCP_SERVER&amp;setup__c2cStatus=" target="_blank" rel="noopener">Headless360 (H360) MCP Server</a> and click <strong>Activate</strong>.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>Activating these servers exposes Salesforce object data and API context to your MCP clients. Both servers are required for a complete MCP experience.</div>
 
       <h3>Step 2: Configure Your Project</h3>
@@ -280,22 +281,12 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="substep"><strong>Rules</strong> are deterministic instructions applied always, or when files match a pattern.</div>
       <div class="substep"><strong>Commands</strong> are reusable prompts injected inline when you type their slash trigger.</div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>One rule (<code>a4v-expert-global-rule.md</code>) is active by default. You can create your own skills, rules, and commands to align the agent to your team's standards.</div>
-      <div class="step"><span class="step-num">4.</span><span>Click on <strong>Manage Agentforce Rules, Workflows, Hooks &amp; Skills</strong> in the context settings.</span></div>
-
 
       <h3>Step 4: Activate the Salesforce MCP Servers</h3>
-      <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar, click <strong>Manage MCP Servers</strong>.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar, click <strong>MCP Servers</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Toggle on all three MCP servers.</span></div>
       <div class="step"><span class="step-num">3.</span><span>Click the MCP Servers' <strong>Configuration Icon</strong>.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Expand the <strong>Salesforce DX</strong> MCP server to take a look at the various tools that are enabled.</span></div>
-
-      <h3>Step 5: Enable Local Development</h3>
-      <div class="step"><span class="step-num">1.</span><span>Open your Salesforce org from the status bar at the bottom of the IDE using the <strong>Open Default Org in Browser</strong> button.</span></div>
-      <div class="callout callout-watch"><span class="callout-label">Watch for</span>If you get an error while opening the org, open the terminal (<code>CMD+`</code> or <code>CTRL+`</code>) and run <code>sf org login web</code>.</div>
-      <div class="step"><span class="step-num">2.</span><span>Navigate to <strong>Setup</strong>.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Search for and select <code>Local Dev</code> in the Quick Find box.</span></div>
-      <div class="step"><span class="step-num">4.</span><span>Set <strong>Enable Local Dev</strong> to <strong>On</strong>.</span></div>
-      <div class="callout callout-tip"><span class="callout-label">Tip</span>If you're working with VS Code instead of the browser-based Agentforce Vibes IDE, you'll need to install the <strong>Salesforce Live Preview</strong> extension.</div>
 
       <h3>Summary</h3>
       <p>In this exercise, you activated the Salesforce hosted MCP servers, configured your local project, and became familiar with the Agentforce Vibes sidebar settings, including the available Skills and Rules. Your environment is now fully prepared for the next steps, where you'll use Agentforce Vibes to analyze your project and build your application.</p>
