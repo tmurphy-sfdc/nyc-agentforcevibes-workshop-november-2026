@@ -246,20 +246,14 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <h2 class="lab-title">Configure a Salesforce Project</h2>
       <p class="lab-subtitle">Enable the MCP Service (Beta) in your Salesforce org and configure your Salesforce project so you can begin vibe coding with context.</p>
 
-      <h3>Step 1: Enable MCP Service (Beta)</h3>
-      <div class="step"><span class="step-num">1.</span><span>From <strong>Setup</strong>, in the <strong>Quick Find</strong> box, enter <code>User Interface Settings</code>, then select <strong>User Interface Settings</strong>.</span></div>
-      <div class="step"><span class="step-num">2.</span><span>Locate <strong>Enable MCP Service (Beta)</strong> and turn it on.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Click <strong>Save</strong>.</span></div>
-      <div class="callout callout-tip"><span class="callout-label">Tip</span>The MCP Service is currently in Beta. Enabling it allows your org to host MCP endpoints that AI clients and agents can call using a standardized, governed protocol.</div>
-
-      <h3>Step 2: Activate Salesforce MCP Servers</h3>
+      <h3>Step 1: Activate Salesforce MCP Servers</h3>
       <div class="step"><span class="step-num">1.</span><span>From <strong>Setup</strong>, in the <strong>Quick Find</strong> box, enter <code>MCP Servers</code>, then select <strong>MCP Servers</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Click <strong>Salesforce Servers</strong>.</span></div>
       <div class="step"><span class="step-num">3.</span><span>Open the <strong>sobject-all</strong> MCP server and click <strong>Activate</strong>.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Open the <strong>salesforce-api-context</strong> MCP server and click <strong>Activate</strong>.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>Activating these servers exposes Salesforce object data and API context to your MCP clients. Both servers are required for a complete MCP experience.</div>
 
-      <h3>Step 3: Configure Your Project</h3>
+      <h3>Step 2: Configure Your Project</h3>
       <div class="step"><span class="step-num">1.</span><span>Open the <strong>Org Browser Sidebar</strong> in Agentforce Vibes to retrieve your project metadata.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Expand <strong>Custom Objects</strong> and retrieve (download) the following standard objects: <strong>Account</strong>, <strong>Lead</strong>, <strong>Opportunity</strong>.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>Downloading objects ensures Agentforce Vibes can analyze your org's schema and accurately generate Apex and LWC code.</div>
@@ -272,7 +266,7 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="substep">Any additional Apex classes required for your project context</div>
       <p>Your project is now fully configured with the metadata Agentforce Vibes needs to plan and generate against.</p>
 
-      <h3>Step 4: Explore the Agentforce Vibes Sidebar</h3>
+      <h3>Step 3: Explore the Agentforce Vibes Sidebar</h3>
       <div class="step"><span class="step-num">1.</span><span>Open the <strong>Agentforce Vibes Sidebar</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Take note of the <strong>Manage MCP Server</strong> options; we'll visit those later.</span></div>
       <div class="step"><span class="step-num">3.</span><span>You can modify the <strong>Auto-approve</strong> settings to adjust the actions an agent can take on your behalf.</span></div>
@@ -281,13 +275,13 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="step"><span class="step-num">6.</span><span>Select the <strong>Skills</strong> tab and take note of the built-in Salesforce Skills available. Skills are modular instruction sets that Agentforce loads on-demand for specific tasks.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>The <strong>Rules</strong> tab provides persistent guidance that applies to every conversation. One rule (<code>a4v-expert-global-rule.md</code>) is active by default. You can create your own skills and rules to align the agent to your team's standards.</div>
 
-      <h3>Step 5: Activate the Salesforce MCP Servers</h3>
+      <h3>Step 4: Activate the Salesforce MCP Servers</h3>
       <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar, click <strong>Manage MCP Servers</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Toggle on all three MCP servers.</span></div>
       <div class="step"><span class="step-num">3.</span><span>Click the MCP Servers' <strong>Configuration Icon</strong>.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Expand the <strong>Salesforce DX</strong> MCP server to take a look at the various tools that are enabled.</span></div>
 
-      <h3>Step 6: Enable Local Development</h3>
+      <h3>Step 5: Enable Local Development</h3>
       <div class="step"><span class="step-num">1.</span><span>Open your Salesforce org from the status bar at the bottom of the IDE using the <strong>Open Default Org in Browser</strong> button.</span></div>
       <div class="callout callout-watch"><span class="callout-label">Watch for</span>If you get an error while opening the org, open the terminal (<code>CMD+`</code> or <code>CTRL+`</code>) and run <code>sf org login web</code>.</div>
       <div class="step"><span class="step-num">2.</span><span>Navigate to <strong>Setup</strong>.</span></div>
