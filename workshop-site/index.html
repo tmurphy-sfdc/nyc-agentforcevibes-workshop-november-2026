@@ -89,6 +89,8 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .callout-why .callout-label { color: #4a893b; }
 .lab-body .callout-watch { border-left-color: #c17510; background: #fef7ec; }
 .lab-body .callout-watch .callout-label { color: #c17510; }
+.lab-body .step-screenshot { display: block; max-width: 420px; width: 100%; margin: 8px 0 14px 12px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.lab-body .step-screenshot-caption { font-size: 12px; color: #777; margin: -8px 0 14px 12px; font-style: italic; }
 /* Placeholder / TBD card */
 .lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
 .tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
@@ -198,6 +200,8 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
 
       <h3>Step 1: Launch Agentforce Vibes</h3>
       <div class="step"><span class="step-num">1.</span><span>Open the <strong>Setup Menu</strong> and click <strong>Agentforce Vibes</strong>.</span></div>
+      <img class="step-screenshot" src="assets/images/lab1-setup-menu.png" alt="Setup Menu dropdown open, with the Agentforce Vibes option highlighted below Your Account">
+      <p class="step-screenshot-caption">The gear/lightning icon in the top app bar opens the Setup Menu. Agentforce Vibes is listed below Your Account.</p>
       <div class="step"><span class="step-num">2.</span><span>Accept the <strong>Terms and Conditions</strong>.</span></div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>It will take a few minutes for Agentforce Vibes to fully initialize. A Salesforce DX project will be automatically created for you and your org will be authorized by default.</div>
       <div class="callout callout-tip"><span class="callout-label">Tip</span>You may see a number of notifications in the bottom right of the IDE. This is where IDE or extension notifications are published. You can close any that appear on launch.</div>
