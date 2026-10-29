@@ -152,9 +152,9 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="schedule-row"><div class="sched-time">10:00 – 10:45</div><div class="sched-item"><strong>Introduction to Agentic Development on Salesforce</strong></div></div>
       <div class="schedule-row is-break"><div class="sched-time">10:45 – 11:00</div><div class="sched-item">Break</div></div>
       <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Workshop Tools &amp; Objectives Walkthrough</strong> · <a href="#lab-1">See guide</a></div></div>
-      <div class="schedule-row"><div class="sched-time">11:10 – 12:00</div><div class="sched-item"><strong>Hands-On Build, Part 1</strong> · <a href="#lab-2">See guide</a></div></div>
+      <div class="schedule-row"><div class="sched-time">11:10 – 12:00</div><div class="sched-item"><strong>Hands-On Build, Part 1</strong> · <a href="#lab-3">See guide</a></div></div>
       <div class="schedule-row is-break"><div class="sched-time">12:00 – 12:10</div><div class="sched-item">Break</div></div>
-      <div class="schedule-row"><div class="sched-time">12:10 – 1:00</div><div class="sched-item"><strong>Hands-On Build, Part 2</strong> · <a href="#lab-3">See guide</a></div></div>
+      <div class="schedule-row"><div class="sched-time">12:10 – 1:00</div><div class="sched-item"><strong>Hands-On Build, Part 2</strong> · <a href="#lab-4">See guide</a></div></div>
       <div class="schedule-row"><div class="sched-time">1:00 – 1:10</div><div class="sched-item"><strong>Wrap-Up &amp; Next Steps</strong></div></div>
     </div>
   </div>
@@ -216,23 +216,76 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <div class="callout callout-watch"><span class="callout-label">Watch for</span>If something appears to be "stuck," the Status Bar is usually where you'll see what the IDE is waiting on.</div>
 
       <h3>Summary</h3>
-      <p>By the end of this walkthrough, you'll have launched Agentforce Vibes and activated it in your org, walked through the initial setup flow, enabled the agent, and confirmed your development environment and sidebar are initialized correctly. With Vibes running inside your IDE, you're ready to move into hands-on build time.</p>
+      <p>In this exercise, you launched Agentforce Vibes and activated it in your Salesforce org. You walked through the initial setup flow, enabled the agent, and confirmed that your development environment and sidebar were initialized correctly. With Vibes now running inside your IDE, you're ready to begin exploring the tools and features that support AI-assisted development.</p>
     </div>
   </div>
 
-  <div class="lab-card is-tbd" id="lab-2">
+  <div class="lab-card" id="lab-2">
     <div class="lab-head" onclick="toggleLab(2)">
       <div class="lab-number">2</div>
       <div class="lab-meta">
-        <p class="lab-name">Hands-On Build, Part 1</p>
-        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
+        <p class="lab-name">Configure a Salesforce Project</p>
+        <p class="lab-duration">~15 min</p>
       </div>
       <div class="lab-actions">
         <button class="btn btn-toggle" id="toggle-2" onclick="event.stopPropagation(); toggleLab(2);">Preview ▾</button>
       </div>
     </div>
     <div class="lab-body" id="body-2">
-      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+      <h2 class="lab-title">Configure a Salesforce Project</h2>
+      <p class="lab-subtitle">Enable the MCP Service (Beta) in your Salesforce org and configure your Salesforce project so you can begin vibe coding with context.</p>
+
+      <h3>Step 1: Enable MCP Service (Beta)</h3>
+      <div class="step"><span class="step-num">1.</span><span>From <strong>Setup</strong>, in the <strong>Quick Find</strong> box, enter <code>User Interface Settings</code>, then select <strong>User Interface Settings</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Locate <strong>Enable MCP Service (Beta)</strong> and turn it on.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Click <strong>Save</strong>.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>The MCP Service is currently in Beta. Enabling it allows your org to host MCP endpoints that AI clients and agents can call using a standardized, governed protocol.</div>
+
+      <h3>Step 2: Activate Salesforce MCP Servers</h3>
+      <div class="step"><span class="step-num">1.</span><span>From <strong>Setup</strong>, in the <strong>Quick Find</strong> box, enter <code>MCP Servers</code>, then select <strong>MCP Servers</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Click <strong>Salesforce Servers</strong>.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Open the <strong>sobject-all</strong> MCP server and click <strong>Activate</strong>.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Open the <strong>salesforce-api-context</strong> MCP server and click <strong>Activate</strong>.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Activating these servers exposes Salesforce object data and API context to your MCP clients. Both servers are required for a complete MCP experience.</div>
+
+      <h3>Step 3: Configure Your Project</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Org Browser Sidebar</strong> in Agentforce Vibes to retrieve your project metadata.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Expand <strong>Custom Objects</strong> and retrieve (download) the following standard objects: <strong>Account</strong>, <strong>Lead</strong>, <strong>Opportunity</strong>.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Downloading objects ensures Agentforce Vibes can analyze your org's schema and accurately generate Apex and LWC code.</div>
+      <div class="step"><span class="step-num">3.</span><span>Expand <strong>Lightning Component Bundle</strong> and download the <strong>genericPageHeader</strong> component.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Expand <strong>Permission Sets</strong> and download the <strong>Partner Management</strong> Permission Set.</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Use the <strong>Explorer Sidebar</strong> to verify your project folder includes:</span></div>
+      <div class="substep">Account, Lead, and Opportunity metadata</div>
+      <div class="substep">Partner Management permission set</div>
+      <div class="substep">The genericPageHeader LWC</div>
+      <div class="substep">Any additional Apex classes required for your project context</div>
+      <p>Your project is now fully configured with the metadata Agentforce Vibes needs to plan and generate against.</p>
+
+      <h3>Step 4: Explore the Agentforce Vibes Sidebar</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Agentforce Vibes Sidebar</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Take note of the <strong>Manage MCP Server</strong> options; we'll visit those later.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>You can modify the <strong>Auto-approve</strong> settings to adjust the actions an agent can take on your behalf.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>You can adjust the <strong>context settings</strong> and <strong>mode</strong> in the toolbar at the bottom of the sidebar.</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Click on <strong>Manage Agentforce Rules, Workflows, Hooks &amp; Skills</strong> in the context settings.</span></div>
+      <div class="step"><span class="step-num">6.</span><span>Select the <strong>Skills</strong> tab and take note of the built-in Salesforce Skills available. Skills are modular instruction sets that Agentforce loads on-demand for specific tasks.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>The <strong>Rules</strong> tab provides persistent guidance that applies to every conversation. One rule (<code>a4v-expert-global-rule.md</code>) is active by default. You can create your own skills and rules to align the agent to your team's standards.</div>
+
+      <h3>Step 5: Activate the Salesforce MCP Servers</h3>
+      <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar, click <strong>Manage MCP Servers</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Toggle on all three MCP servers.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Click the MCP Servers' <strong>Configuration Icon</strong>.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Expand the <strong>Salesforce DX</strong> MCP server to take a look at the various tools that are enabled.</span></div>
+
+      <h3>Step 6: Enable Local Development</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open your Salesforce org from the status bar at the bottom of the IDE using the <strong>Open Default Org in Browser</strong> button.</span></div>
+      <div class="callout callout-watch"><span class="callout-label">Watch for</span>If you get an error while opening the org, open the terminal (<code>CMD+`</code> or <code>CTRL+`</code>) and run <code>sf org login web</code>.</div>
+      <div class="step"><span class="step-num">2.</span><span>Navigate to <strong>Setup</strong>.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Search for and select <code>Local Dev</code> in the Quick Find box.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Set <strong>Enable Local Dev</strong> to <strong>On</strong>.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>If you're working with VS Code instead of the browser-based Agentforce Vibes IDE, you'll need to install the <strong>Salesforce Live Preview</strong> extension.</div>
+
+      <h3>Summary</h3>
+      <p>In this exercise, you activated the Salesforce hosted MCP servers, configured your local project, and became familiar with the Agentforce Vibes sidebar settings, including the available Skills and Rules. Your environment is now fully prepared for the next steps, where you'll use Agentforce Vibes to analyze your project and build your application.</p>
     </div>
   </div>
 
@@ -240,14 +293,30 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
     <div class="lab-head" onclick="toggleLab(3)">
       <div class="lab-number">3</div>
       <div class="lab-meta">
-        <p class="lab-name">Hands-On Build, Part 2</p>
-        <p class="lab-duration">12:10 – 1:00 PM · ~50 min</p>
+        <p class="lab-name">Hands-On Build, Part 1</p>
+        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
       </div>
       <div class="lab-actions">
         <button class="btn btn-toggle" id="toggle-3" onclick="event.stopPropagation(); toggleLab(3);">Preview ▾</button>
       </div>
     </div>
     <div class="lab-body" id="body-3">
+      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+    </div>
+  </div>
+
+  <div class="lab-card is-tbd" id="lab-4">
+    <div class="lab-head" onclick="toggleLab(4)">
+      <div class="lab-number">4</div>
+      <div class="lab-meta">
+        <p class="lab-name">Hands-On Build, Part 2</p>
+        <p class="lab-duration">12:10 – 1:00 PM · ~50 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-4" onclick="event.stopPropagation(); toggleLab(4);">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-4">
       <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
     </div>
   </div>
