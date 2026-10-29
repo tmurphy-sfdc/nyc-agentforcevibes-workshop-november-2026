@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentforce Vibes Workshop · Salesforce</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; color: #1a1a1a; background: #f5f5f5; line-height: 1.5; }
+.hero { position: relative; background: #fff; color: #1a1a1a; padding: 48px 24px 40px; border-bottom: 1px solid #e0e0e0; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-logo { position: absolute; top: 0; right: 0; width: 92px; height: 92px; display: block; }
+.hero-logo svg { width: 100%; height: 100%; display: block; }
+.hero-eyebrow { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #0053A0; font-weight: 700; margin-bottom: 12px; }
+.hero h1 { margin: 0 0 10px; font-size: 42px; font-weight: 700; letter-spacing: -0.5px; }
+.hero .tagline { font-size: 18px; opacity: 0.9; margin: 0 0 24px; max-width: 760px; color: #333; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; }
+.hero-fact { background: #f8f8f8; border: 1px solid #0053A0; border-radius: 8px; padding: 14px 20px; min-width: 180px; }
+.hero-fact .fact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #0053A0; font-weight: 700; margin-bottom: 4px; }
+.hero-fact .fact-value { font-size: 16px; font-weight: 600; color: #000; }
+@media (max-width: 760px) {
+  .hero-logo { width: 64px; height: 64px; top: 8px; right: 8px; }
+  .hero h1 { padding-right: 72px; }
+}
+@media (max-width: 420px) {
+  .hero-logo { position: static; width: 56px; height: 56px; margin-bottom: 16px; }
+  .hero h1 { padding-right: 0; font-size: 34px; }
+}
+nav.topnav { position: sticky; top: 0; background: #032D60; border-bottom: 3px solid #1B96FF; z-index: 50; padding: 10px 16px; }
+nav.topnav > ul { max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: center; }
+nav.topnav a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.1px; padding: 6px 12px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
+nav.topnav a:hover { background: #0053A0; color: #fff; }
+@media (max-width: 860px) {
+  nav.topnav > ul { justify-content: flex-start; gap: 2px; }
+  nav.topnav a { font-size: 13px; padding: 5px 8px; }
+}
+main { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+section { margin-bottom: 56px; }
+section h2.section-title { font-size: 28px; font-weight: 800; color: #000; margin: 0 0 8px; border-bottom: 3px solid #0053A0; padding-bottom: 8px; display: inline-block; }
+section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max-width: 780px; }
+/* Agenda */
+.agenda-card { background: #fff; border-radius: 10px; border: 1px solid #e0e0e0; overflow: hidden; max-width: 760px; }
+.day-header { background: #032D60; color: #fff; padding: 14px 20px; }
+.day-header h3 { margin: 0; font-size: 18px; }
+.day-header .day-date { font-size: 13px; color: #1B96FF; margin-top: 2px; }
+.day-body { padding: 16px 20px; }
+.schedule-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px dashed #e5e5e5; align-items: flex-start; }
+.schedule-row:last-child { border-bottom: none; }
+.schedule-row.is-break .sched-item { color: #777; font-style: italic; }
+.sched-time { font-size: 13px; color: #666; min-width: 110px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.sched-item { font-size: 14px; color: #222; }
+.sched-item strong { color: #0053A0; }
+/* Prereqs */
+.prereq-list { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; }
+.prereq-list ul { padding-left: 20px; margin: 0; }
+.prereq-list li { margin: 8px 0; font-size: 15px; }
+/* Labs */
+.lab-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+.lab-head { display: flex; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; user-select: none; }
+.lab-head:hover { background: #fafbfc; }
+.lab-number { background: #032D60; color: #1B96FF; font-weight: 800; font-size: 20px; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.lab-meta { flex: 1; }
+.lab-name { font-size: 17px; font-weight: 700; color: #1a1a1a; margin: 0; }
+.lab-duration { font-size: 13px; color: #666; margin-top: 2px; }
+.lab-actions { display: flex; gap: 8px; align-items: center; }
+.btn { padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-toggle { background: #fff; color: #0053A0; border-color: #0053A0; }
+.btn-toggle:hover { background: #0053A0; color: #fff; }
+.lab-body { display: none; padding: 0 22px 22px; max-height: 1600px; overflow-y: auto; border-top: 1px solid #e8e8e8; }
+.lab-body.open { display: block; }
+.lab-body h2.lab-title { font-size: 20px; color: #000; margin: 16px 0 4px; }
+.lab-body p.lab-subtitle { font-size: 13px; color: #777; font-style: italic; margin: 0 0 18px; }
+.lab-body h2 { font-size: 18px; color: #0053A0; margin: 20px 0 8px; }
+.lab-body h3 { font-size: 15px; color: #0053A0; margin: 14px 0 6px; }
+.lab-body h4 { font-size: 14px; color: #333; margin: 10px 0 4px; }
+.lab-body p { font-size: 14px; margin: 4px 0; }
+.lab-body .step { display: flex; gap: 8px; margin: 3px 0 3px 12px; font-size: 14px; }
+.lab-body .step-num { font-weight: 700; color: #0053A0; min-width: 20px; }
+.lab-body .substep { font-size: 14px; margin: 2px 0 2px 36px; color: #333; }
+.lab-body .substep::before { content: "• "; color: #0053A0; font-weight: 700; }
+.lab-body .bullet { font-size: 14px; margin: 4px 0 4px 20px; }
+.lab-body .bullet::before { content: "• "; color: #000; font-weight: 700; }
+.lab-body .callout { background: #fafbfc; border-left: 3px solid #ccc; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; }
+.lab-body .callout-label { font-weight: 700; margin-right: 8px; display: block; margin-bottom: 2px; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+.lab-body .callout-tip { border-left-color: #1a76c7; background: #eff6fc; }
+.lab-body .callout-tip .callout-label { color: #1a76c7; }
+.lab-body .callout-why { border-left-color: #4a893b; background: #f0f7ed; }
+.lab-body .callout-why .callout-label { color: #4a893b; }
+.lab-body .callout-watch { border-left-color: #c17510; background: #fef7ec; }
+.lab-body .callout-watch .callout-label { color: #c17510; }
+/* Placeholder / TBD card */
+.lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
+.tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
+.tbd-banner strong { color: #c17510; }
+footer { background: #032D60; color: #d8d8d8; padding: 24px; text-align: center; font-size: 13px; }
+footer .footer-accent { color: #1B96FF; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <a href="#top" class="hero-logo" aria-label="Salesforce">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="#0053A0"/>
+        <text x="50" y="58" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#fff" letter-spacing="-0.5">SALESFORCE</text>
+      </svg>
+    </a>
+    <div class="hero-eyebrow">Workshop</div>
+    <h1>Agentforce Vibes Workshop</h1>
+    <p class="tagline">A half-day, hands-on session introducing agentic development on Salesforce, with guided practice inside Agentforce Vibes.</p>
+    <div class="hero-facts">
+      <div class="hero-fact">
+        <div class="fact-label">Date</div>
+        <div class="fact-value">November 4, 2026</div>
+      </div>
+      <div class="hero-fact">
+        <div class="fact-label">Location</div>
+        <div class="fact-value">Salesforce Tower, NYC</div>
+      </div>
+      <div class="hero-fact">
+        <div class="fact-label">Time</div>
+        <div class="fact-value">9:00 AM – 1:10 PM</div>
+      </div>
+      <div class="hero-fact">
+        <div class="fact-label">Format</div>
+        <div class="fact-value">Half-day, hands-on</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav">
+  <ul>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#prereqs">Prerequisites</a></li>
+    <li><a href="#labs">Workshop Guides</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="agenda">
+  <h2 class="section-title">Agenda</h2>
+  <p class="section-lede">One morning, one room, one build. The session opens with framing on agentic development, then moves into guided, hands-on time inside Agentforce Vibes.</p>
+  <div class="agenda-card">
+    <div class="day-header">
+      <h3>Agentforce Vibes Workshop</h3>
+      <div class="day-date">Wednesday, November 4, 2026 · Salesforce Tower, NYC</div>
+    </div>
+    <div class="day-body">
+      <div class="schedule-row"><div class="sched-time">9:00 – 9:30</div><div class="sched-item"><strong>Welcome &amp; Check-In</strong></div></div>
+      <div class="schedule-row"><div class="sched-time">9:30 – 10:00</div><div class="sched-item"><strong>Opening</strong> · Salesforce in the Agentic Age</div></div>
+      <div class="schedule-row"><div class="sched-time">10:00 – 10:45</div><div class="sched-item"><strong>Introduction to Agentic Development on Salesforce</strong></div></div>
+      <div class="schedule-row is-break"><div class="sched-time">10:45 – 11:00</div><div class="sched-item">Break</div></div>
+      <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Workshop Tools &amp; Objectives Walkthrough</strong> · <a href="#lab-1">See guide</a></div></div>
+      <div class="schedule-row"><div class="sched-time">11:10 – 12:00</div><div class="sched-item"><strong>Hands-On Build, Part 1</strong> · <a href="#lab-2">See guide</a></div></div>
+      <div class="schedule-row is-break"><div class="sched-time">12:00 – 12:10</div><div class="sched-item">Break</div></div>
+      <div class="schedule-row"><div class="sched-time">12:10 – 1:00</div><div class="sched-item"><strong>Hands-On Build, Part 2</strong> · <a href="#lab-3">See guide</a></div></div>
+      <div class="schedule-row"><div class="sched-time">1:00 – 1:10</div><div class="sched-item"><strong>Wrap-Up &amp; Next Steps</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="prereqs">
+  <h2 class="section-title">Prerequisites</h2>
+  <p class="section-lede">A quick checklist to confirm before the session. Details below are being finalized — check back before November 4.</p>
+  <div class="prereq-list">
+    <ul>
+      <li><strong>Laptop with Chrome, Firefox, or Edge.</strong> Latest two major versions.</li>
+      <li><strong>Workshop org access.</strong> Sign-in details and org provisioning steps will be shared by the facilitator team ahead of the session.</li>
+      <li><strong>Arrive by 9:00 AM</strong> for check-in before the opening session begins at 9:30.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="labs">
+  <h2 class="section-title">Workshop Guides</h2>
+  <p class="section-lede">Click Preview to expand a guide inline. Content below reflects the current plan and will keep filling in as the session gets closer.</p>
+
+  <div class="lab-card" id="lab-1">
+    <div class="lab-head" onclick="toggleLab(1)">
+      <div class="lab-number">1</div>
+      <div class="lab-meta">
+        <p class="lab-name">Workshop Tools &amp; Objectives Walkthrough</p>
+        <p class="lab-duration">11:00 – 11:10 AM · ~10 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-1" onclick="event.stopPropagation(); toggleLab(1);">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-1">
+      <h2 class="lab-title">Launch and Get Familiar with Agentforce Vibes</h2>
+      <p class="lab-subtitle">A fast, guided walkthrough before hands-on time begins: what Agentforce Vibes is, how to launch it, and the IDE areas you'll use for the rest of the session.</p>
+
+      <h3>What you're building toward</h3>
+      <p>Agentforce Vibes is Salesforce's enterprise-grade vibe coding environment, a context-aware, AI-powered IDE that turns natural language into working Salesforce applications. Built on the Salesforce Platform and Trust Layer, Vibes accelerates every stage of the development lifecycle: planning, building, testing, deploying, and iterating.</p>
+      <p>Unlike basic AI code assistants that generate snippets, Agentforce Vibes is designed specifically for secure, governed enterprise development. It understands your org's metadata, adheres to your patterns and Rules, and works with Salesforce tools such as Sandboxes, Code Analyzer, DevOps Center, and the Salesforce DX MCP server.</p>
+      <div class="callout callout-why"><span class="callout-label">Why this matters</span>When you interact with Agentforce Vibes, you're collaborating with an autonomous coding partner that can analyze your project, create detailed plans, scaffold metadata, generate Apex and Lightning Web Components, refactor existing code, resolve bugs, and deploy your app, all through natural language.</div>
+
+      <h3>Step 1: Launch Agentforce Vibes</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Setup Menu</strong> and click <strong>Agentforce Vibes</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Accept the <strong>Terms and Conditions</strong>.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>It will take a few minutes for Agentforce Vibes to fully initialize. A Salesforce DX project will be automatically created for you and your org will be authorized by default.</div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>You may see a number of notifications in the bottom right of the IDE. This is where IDE or extension notifications are published. You can close any that appear on launch.</div>
+      <div class="step"><span class="step-num">3.</span><span>The <strong>Agentforce Sidebar</strong> should be open by default. If it isn't, select the <strong>Agentforce Vibes Icon</strong> in the sidebar to open it.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Select <strong>I agree to the terms</strong> and click <strong>Enable and Start Building</strong>.</span></div>
+
+      <h3>Step 2: Get Familiar with the Agentforce Vibes IDE</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the command palette (<code>CMD+SHIFT+P</code> on Mac or <code>CTRL+SHIFT+P</code> on PC). Use it to access Agentforce Vibes commands, SFDX commands, Lightning Preview, and project tools and utilities.</span></div>
+      <div class="substep">(Optional) Change your IDE theme by opening the command palette and searching for <code>Color Theme</code>.</div>
+      <div class="step"><span class="step-num">2.</span><span>Open the <strong>Explorer Sidebar</strong> to view your project files. Generated Apex classes, Lightning Web Components, and metadata will appear here.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Open the <strong>Org Browser Sidebar</strong> (cloud icon in the Activity Bar, or search <code>Org Browser: Focus on Metadata View</code> in the Command Palette). Use it to browse metadata in your org, expand objects, fields, Apex classes, and LWCs, and download metadata directly into your SFDX project.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Downloaded metadata gives Agentforce Vibes the context it needs for accurate planning and code generation.</div>
+      <div class="step"><span class="step-num">4.</span><span>Open the <strong>Extensions Sidebar</strong> to confirm the <strong>Salesforce Extension Pack</strong> is installed. This includes tools for SFDX commands, Org Browser, Lightning Preview, and MCP support.</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Open the <strong>Integrated Terminal</strong> (<code>CTRL+`</code> on both Mac and Windows) to view output from SFDX commands, run optional CLI commands, and inspect logs or deployment messages.</span></div>
+      <div class="step"><span class="step-num">6.</span><span>Check the <strong>Status Bar</strong> at the bottom of the IDE. It shows your authorized org, active project, Lightning Preview activity, and MCP server status.</span></div>
+      <div class="callout callout-watch"><span class="callout-label">Watch for</span>If something appears to be "stuck," the Status Bar is usually where you'll see what the IDE is waiting on.</div>
+
+      <h3>Summary</h3>
+      <p>By the end of this walkthrough, you'll have launched Agentforce Vibes and activated it in your org, walked through the initial setup flow, enabled the agent, and confirmed your development environment and sidebar are initialized correctly. With Vibes running inside your IDE, you're ready to move into hands-on build time.</p>
+    </div>
+  </div>
+
+  <div class="lab-card is-tbd" id="lab-2">
+    <div class="lab-head" onclick="toggleLab(2)">
+      <div class="lab-number">2</div>
+      <div class="lab-meta">
+        <p class="lab-name">Hands-On Build, Part 1</p>
+        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-2" onclick="event.stopPropagation(); toggleLab(2);">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-2">
+      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+    </div>
+  </div>
+
+  <div class="lab-card is-tbd" id="lab-3">
+    <div class="lab-head" onclick="toggleLab(3)">
+      <div class="lab-number">3</div>
+      <div class="lab-meta">
+        <p class="lab-name">Hands-On Build, Part 2</p>
+        <p class="lab-duration">12:10 – 1:00 PM · ~50 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-3" onclick="event.stopPropagation(); toggleLab(3);">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-3">
+      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  <div>Agentforce Vibes Workshop · <span class="footer-accent">Salesforce</span> · November 4, 2026 · Salesforce Tower, NYC</div>
+</footer>
+
+<script>
+function toggleLab(n) {
+  const body = document.getElementById('body-' + n);
+  const toggle = document.getElementById('toggle-' + n);
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    toggle.innerHTML = 'Preview ▾';
+  } else {
+    body.classList.add('open');
+    toggle.innerHTML = 'Collapse ▴';
+  }
+}
+</script>
+
+</body>
+</html>
