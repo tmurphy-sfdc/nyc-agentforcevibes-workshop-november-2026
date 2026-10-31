@@ -92,6 +92,9 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .step-screenshot { display: block; max-width: 420px; width: 100%; margin: 8px 0 14px 12px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .lab-body .step-screenshot-caption { font-size: 12px; color: #777; margin: -8px 0 14px 12px; font-style: italic; }
 .lab-body .step-screenshot-icon { display: block; width: 56px; max-width: 56px; margin: 8px 0 14px 12px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; padding: 6px; }
+.lab-body .prompt-block { margin: 8px 0 14px 12px; background: #1d1033; border-radius: 8px; overflow: hidden; }
+.lab-body .prompt-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: #c9a8ff; padding: 8px 14px 0; }
+.lab-body .prompt-text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; color: #f1eaff; padding: 4px 14px 14px; white-space: pre-wrap; }
 /* Placeholder / TBD card */
 .lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
 .tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
@@ -293,7 +296,7 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
     </div>
   </div>
 
-  <div class="lab-card is-tbd" id="lab-3">
+  <div class="lab-card" id="lab-3">
     <div class="lab-head" onclick="toggleLab(3)">
       <div class="lab-number">3</div>
       <div class="lab-meta">
@@ -305,7 +308,51 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       </div>
     </div>
     <div class="lab-body" id="body-3">
-      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+      <h2 class="lab-title">Hands-On Build, Part 1</h2>
+      <p class="lab-subtitle">Go from a plain-language description to a working feature with real data, a usable view, and documentation, all inside Agentforce Vibes.</p>
+
+      <h3>What you're building toward</h3>
+      <p>You'll build a <strong>Facility Inspection</strong> tracker from scratch, the kind of object almost any agency in this room could use for tracking site visits, safety checks, or compliance reviews. Rather than clicking through Object Manager, you'll describe what you need in plain language and let Agentforce Vibes scaffold it, fill it with sample data, surface it as a usable view, and document it for a teammate.</p>
+      <div class="callout callout-why"><span class="callout-label">Why this matters</span>This is the core loop you'll use back in your own org: describe what you need, review what Vibes generates, and iterate. The scenario here is generic on purpose so it transfers directly to whatever your agency actually tracks.</div>
+
+      <h3>Step 1: Scaffold the object from a sentence</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the Agentforce Vibes chat and paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Create a custom object called Facility Inspection to track inspections of buildings and sites. It should have these fields: Site Name (text), Inspection Type (picklist: Health and Sanitation, Fire and Safety, Building Systems, Other), Scheduled Date (date), Inspector (text), Status (picklist: Scheduled, In Progress, Passed, Failed, Follow-Up Required), and Notes (long text area). Add it to a tab so I can see it in the app.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes before approving. Confirm the field types and picklist values match what you asked for.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Approve the plan and deploy. Once it finishes, open the <strong>Facility Inspection</strong> tab to confirm it appears in the app.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Spelling out every field type and picklist value in your prompt (rather than leaving it to guess) is what keeps everyone's org consistent and avoids back-and-forth clarification.</div>
+
+      <h3>Step 2: Seed sample data</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below to generate realistic sample records.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Generate 8 sample Facility Inspection records with a realistic mix of Inspection Types and Statuses. Include at least 3 records with a Status of Failed or Follow-Up Required, and spread the Scheduled Date values across the last 30 days. Use generic site names like "Building A" or "Main Street Site" rather than real addresses.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Approve the records and confirm they were created. Open a few to spot-check the data.</span></div>
+      <div class="callout callout-watch"><span class="callout-label">Watch for</span>The "generic site names" instruction matters, it keeps the sample data agency-neutral instead of Vibes inventing something that reads as a real location.</div>
+
+      <h3>Step 3: Ask a natural-language data question</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below to turn a plain-language question into a usable view.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Show me all Facility Inspection records where the Status is Failed or Follow-Up Required, sorted by Scheduled Date with the oldest first. Build this as a list view I can come back to.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Confirm the list view was created and open it directly from the Facility Inspection tab.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Asking Vibes to "build this as a list view" (instead of just "show me") is what turns a one-off answer into something you can return to later.</div>
+
+      <h3>Step 4: Document what you built</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below to generate a plain-language summary of what you just created.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Write a short, plain-language summary of the Facility Inspection object, its fields, and the list view I just created. Write it so a coworker who wasn't in this session could understand what it's for and how to use it.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Read through the summary Vibes generates. Notice that it's describing your actual org metadata, not a generic template.</span></div>
+
+      <h3>Summary</h3>
+      <p>In this exercise, you took an idea from a single sentence to a deployed custom object, populated it with realistic sample data, turned a plain-language question into a saved list view, and generated documentation a teammate could use without ever having been in the room. This is the same loop you'll use to introduce Agentforce Vibes into your own org: describe, review, approve, and document.</p>
     </div>
   </div>
 
