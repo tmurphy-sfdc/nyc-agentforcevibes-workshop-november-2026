@@ -248,51 +248,47 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
     </div>
     <div class="lab-body" id="body-2">
       <h2 class="lab-title">Configure a Salesforce Project</h2>
-      <p class="lab-subtitle">Enable the MCP Service (Beta) in your Salesforce org and configure your Salesforce project so you can begin vibe coding with context.</p>
+      <p class="lab-subtitle">Connect Agentforce Vibes to your org's MCP servers, then explore what makes up a Salesforce project.</p>
 
-      <h3>Step 1: Activate Salesforce MCP Servers</h3>
+      <h3>Step 1: Activate the MCP servers in Setup</h3>
       <div class="step"><span class="step-num">1.</span><span>From <strong>Setup</strong>, in the <strong>Quick Find</strong> box, enter <code>MCP Servers</code>, then select <strong>MCP Servers</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>You will see the list of <strong>Salesforce Servers</strong>.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Open the <strong>salesforce-sobject-all</strong> MCP server and click <strong>Activate</strong>. Copy the server's <strong>URL</strong>; you'll need it later in Step 4.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Open the <strong>salesforce-sobject-all</strong> MCP server and click <strong>Activate</strong>. Copy the server's <strong>URL</strong>; you'll need it in Step 2.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Open the <strong>salesforce-api-context</strong> MCP server and click <strong>Activate</strong>.</span></div>
       <div class="step"><span class="step-num">5.</span><span>Open the <strong>Headless360 (H360) MCP Server</strong> and click <strong>Activate</strong>.</span></div>
-      <div class="callout callout-tip"><span class="callout-label">Tip</span>Activating these servers exposes Salesforce object data and API context to your MCP clients. Both servers are required for a complete MCP experience.</div>
 
-      <h3>Step 2: Configure Your Project</h3>
-      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Org Browser Sidebar</strong> in Agentforce Vibes to retrieve your project metadata.</span></div>
+      <h3>Step 2: Connect them in Agentforce Vibes</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Agentforce Vibes Sidebar</strong>, click the <strong>Toolkit</strong> tab, then click <strong>MCP Servers</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Toggle on <strong>salesforce-api-context</strong> and <strong>Headless360</strong>.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Click <strong>Add Server</strong> and paste the <strong>salesforce-sobject-all</strong> server URL you copied in Step 1 to manually add it.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Expand the <strong>Salesforce DX</strong> MCP server to see the tools it already has enabled.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Salesforce DX depends on your local CLI session, so it only works in local development. The three servers you just activated are hosted by your org, so they work no matter where you're running Vibes.</div>
+
+      <h3>Step 3: Explore the makeup of a Salesforce project</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Org Browser Sidebar</strong> in Agentforce Vibes.</span></div>
       <img class="step-screenshot-icon" src="assets/images/lab2-org-browser-icon.png" alt="Org Browser icon as shown in the IDE activity bar">
       <p class="step-screenshot-caption">Look for this cloud/code icon in the activity bar to open the Org Browser Sidebar.</p>
-      <div class="step"><span class="step-num">2.</span><span>Expand <strong>Custom Objects</strong> and retrieve (download) the following standard objects: <strong>Account</strong>, <strong>Lead</strong>, <strong>Opportunity</strong>. Click the <strong>download/cloud icon</strong> next to each object to retrieve its metadata.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Expand <strong>Custom Objects</strong> and retrieve the <strong>Account</strong> object. Click the <strong>download/cloud icon</strong> next to it.</span></div>
       <img class="step-screenshot" src="assets/images/lab2-retrieve-metadata.png" alt="Custom Object tree showing Account with a download cloud icon to retrieve its metadata">
-      <p class="step-screenshot-caption">The cloud icon next to each object (shown here for Account) retrieves its metadata into your project.</p>
-      <div class="callout callout-tip"><span class="callout-label">Tip</span>Downloading objects ensures Agentforce Vibes can analyze your org's schema and accurately generate Apex and LWC code.</div>
+      <p class="step-screenshot-caption">The cloud icon next to each object retrieves its metadata into your project.</p>
       <div class="step"><span class="step-num">3.</span><span>Expand <strong>Lightning Component Bundle</strong> and download the <strong>genericPageHeader</strong> component.</span></div>
       <div class="step"><span class="step-num">4.</span><span>Expand <strong>Permission Sets</strong> and download the <strong>Partner Management</strong> Permission Set.</span></div>
-      <div class="step"><span class="step-num">5.</span><span>Use the <strong>Explorer Sidebar</strong> to verify your project folder includes:</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Open the <strong>Explorer Sidebar</strong> and look through what you just retrieved:</span></div>
       <img class="step-screenshot" src="assets/images/lab2-explorer-sidebar.png" alt="Explorer Sidebar showing the retrieved force-app project structure, with the Explorer icon highlighted in the activity bar">
       <p class="step-screenshot-caption">The Explorer icon (top of the activity bar) opens this file tree. Folders with retrieved metadata appear in your DX project under force-app/main/default.</p>
-      <div class="substep">Account, Lead, and Opportunity metadata</div>
-      <div class="substep">Partner Management permission set</div>
-      <div class="substep">The genericPageHeader LWC</div>
-      <div class="substep">Any additional Apex classes required for your project context</div>
-      <p>Your project is now fully configured with the metadata Agentforce Vibes needs to plan and generate against.</p>
+      <div class="substep">The Account object's fields and metadata</div>
+      <div class="substep">The Partner Management permission set</div>
+      <div class="substep">The genericPageHeader LWC, and how a component bundle is structured</div>
+      <div class="callout callout-why"><span class="callout-label">Why this matters</span>This is what a Salesforce project is made of: objects, components, and permission sets as files Agentforce Vibes can read, reason about, and generate against.</div>
 
-      <h3>Step 3: Explore the Agentforce Vibes Sidebar</h3>
-      <div class="step"><span class="step-num">1.</span><span>Open the <strong>Agentforce Vibes Sidebar</strong>.</span></div>
-      <div class="step"><span class="step-num">2.</span><span>Click the <strong>Toolkit</strong> tab. You'll see the <strong>MCP Servers</strong> section; we'll visit that later.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Click on <strong>Skills</strong>, <strong>Rules</strong>, and <strong>Commands</strong>.</span></div>
+      <h3>Step 4: Explore Skills, Rules, and Commands</h3>
+      <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar's <strong>Toolkit</strong> tab, click on <strong>Skills</strong>, <strong>Rules</strong>, and <strong>Commands</strong>.</span></div>
       <div class="substep"><strong>Skills</strong> are on-demand knowledge activated when a task matches the domain.</div>
       <div class="substep"><strong>Rules</strong> are deterministic instructions applied always, or when files match a pattern.</div>
       <div class="substep"><strong>Commands</strong> are reusable prompts injected inline when you type their slash trigger.</div>
 
-      <h3>Step 4: Activate the Salesforce MCP Servers</h3>
-      <div class="step"><span class="step-num">1.</span><span>In the Agentforce Vibes Sidebar, click <strong>MCP Servers</strong>.</span></div>
-      <div class="step"><span class="step-num">2.</span><span>Toggle on all three MCP servers.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Click <strong>Add Server</strong> and paste the <strong>salesforce-sobject-all</strong> server URL you copied in Step 1 to manually add it.</span></div>
-      <div class="step"><span class="step-num">4.</span><span>Expand the <strong>Salesforce DX</strong> MCP server to take a look at the various tools that are enabled.</span></div>
-
       <h3>Summary</h3>
-      <p>In this exercise, you activated the Salesforce hosted MCP servers, configured your local project, and became familiar with the Agentforce Vibes sidebar settings, including the available Skills and Rules. Your environment is now fully prepared for the next steps, where you'll use Agentforce Vibes to analyze your project and build your application.</p>
+      <p>You connected Agentforce Vibes to your org's MCP servers, then explored the pieces that make up a Salesforce project: objects, components, and permission sets. Your environment is ready for the next step, where you'll use Vibes to build something new.</p>
     </div>
   </div>
 
