@@ -51,10 +51,6 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .sched-time { font-size: 13px; color: #666; min-width: 110px; font-variant-numeric: tabular-nums; font-weight: 600; }
 .sched-item { font-size: 14px; color: #222; }
 .sched-item strong { color: #0053A0; }
-/* Prereqs */
-.prereq-list { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; }
-.prereq-list ul { padding-left: 20px; margin: 0; }
-.prereq-list li { margin: 8px 0; font-size: 15px; }
 /* Labs */
 .lab-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
 .lab-head { display: flex; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; user-select: none; }
@@ -137,7 +133,6 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
 <nav class="topnav">
   <ul>
     <li><a href="#agenda">Agenda</a></li>
-    <li><a href="#prereqs">Prerequisites</a></li>
     <li><a href="#labs">Workshop Guides</a></li>
   </ul>
 </nav>
@@ -167,21 +162,9 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
   </div>
 </section>
 
-<section id="prereqs">
-  <h2 class="section-title">Prerequisites</h2>
-  <p class="section-lede">A quick checklist to confirm before the session.</p>
-  <div class="prereq-list">
-    <ul>
-      <li><strong>Laptop with Chrome, Firefox, or Edge.</strong> Latest two major versions.</li>
-      <li><strong>Workshop org access.</strong> Go to <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener">orgfarm.salesforce.com/signup</a> and enter the event code. The event code will be provided the day of the workshop when you arrive, so you don't need it ahead of time.</li>
-      <li><strong>Arrive by 9:00 AM</strong> for check-in before the opening session begins at 9:25.</li>
-    </ul>
-  </div>
-</section>
-
 <section id="labs">
   <h2 class="section-title">Workshop Guides</h2>
-  <p class="section-lede">Click Preview to expand a guide inline.</p>
+  <p class="section-lede">These guides are meant to be followed inside the workshop org created for you. Go to <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener">orgfarm.salesforce.com/signup</a> and enter the event code (provided the day of the workshop when you arrive) to get access. Click Preview to expand a guide inline.</p>
 
   <div class="lab-card" id="lab-1">
     <div class="lab-head" onclick="toggleLab(1)">
