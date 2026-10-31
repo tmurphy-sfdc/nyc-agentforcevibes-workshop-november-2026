@@ -91,6 +91,11 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .prompt-block { margin: 8px 0 14px 12px; background: #1d1033; border-radius: 8px; overflow: hidden; }
 .lab-body .prompt-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: #c9a8ff; padding: 8px 14px 0; }
 .lab-body .prompt-text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; color: #f1eaff; padding: 4px 14px 14px; white-space: pre-wrap; }
+.lab-body table.lifecycle-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+.lab-body table.lifecycle-table th { background: #032D60; color: #fff; text-align: left; padding: 8px 12px; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; }
+.lab-body table.lifecycle-table td { border-bottom: 1px solid #e5e5e5; padding: 10px 12px; vertical-align: top; }
+.lab-body table.lifecycle-table td:first-child { font-weight: 700; color: #0053A0; white-space: nowrap; }
+.lab-body table.lifecycle-table tr:last-child td { border-bottom: none; }
 /* Placeholder / TBD card */
 .lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
 .tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
@@ -184,6 +189,16 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <h3>What you're building toward</h3>
       <p>Agentforce Vibes is Salesforce's enterprise-grade vibe coding environment, a context-aware, AI-powered IDE that turns natural language into working Salesforce applications. Built on the Salesforce Platform and Trust Layer, Vibes accelerates every stage of the development lifecycle: planning, building, testing, deploying, and iterating.</p>
       <p>Unlike basic AI code assistants that generate snippets, Agentforce Vibes is designed specifically for secure, governed enterprise development. It understands your org's metadata, adheres to your patterns and Rules, and works with Salesforce tools such as Sandboxes, Code Analyzer, DevOps Center, and the Salesforce DX MCP server.</p>
+      <p>Vibes shows up across the whole lifecycle of a Salesforce implementation, not just the "write some code" part:</p>
+      <table class="lifecycle-table">
+        <tr><th>Phase</th><th>What you get</th><th>How Vibes delivers it</th></tr>
+        <tr><td>Discover</td><td>Ask about org metadata, field shapes, running SOQL, answered from live org data.</td><td>The sobject-all and salesforce-api-context MCP servers give Vibes direct, governed access to your org's schema and data.</td></tr>
+        <tr><td>Design</td><td>Architectural guidance on LWC, Apex patterns, Flow vs. Apex trade-offs.</td><td>Vibes reasons against retrieved metadata and platform best practices, not generic code samples.</td></tr>
+        <tr><td>Build</td><td>Generate components, classes, and tests grounded in platform constraints.</td><td>Generated code references real field and object API names pulled from your local DX project.</td></tr>
+        <tr><td>Test</td><td>Run Apex tests, Jest tests, code analysis, accessibility checks.</td><td>Vibes integrates with Code Analyzer and the same DX tooling already in your IDE.</td></tr>
+        <tr><td>Deploy</td><td>Deploy metadata, manage DevOps Center work items, resolve merge conflicts and deployment failures.</td><td>Vibes drives the same Salesforce CLI and DevOps Center tooling you'd otherwise run by hand.</td></tr>
+        <tr><td>Maintain</td><td>Review diffs, scan for anti-patterns, explain existing code.</td><td>Vibes reads your project's existing files directly, so its explanations are grounded in what's actually there.</td></tr>
+      </table>
       <div class="callout callout-why"><span class="callout-label">Why this matters</span>When you interact with Agentforce Vibes, you're collaborating with an autonomous coding partner that can analyze your project, create detailed plans, build metadata, generate Apex and Lightning Web Components, refactor existing code, resolve bugs, and deploy your app, all through natural language.</div>
 
       <h3>Step 1: Launch Agentforce Vibes</h3>
