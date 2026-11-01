@@ -347,6 +347,96 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
     </div>
   </div>
 
+  <div class="lab-card" id="lab-3b">
+    <div class="lab-head" onclick="toggleLab('3b')">
+      <div class="lab-number">3b</div>
+      <div class="lab-meta">
+        <p class="lab-name">Hands-On Build, Part 1 – Option 2</p>
+        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-3b" onclick="event.stopPropagation(); toggleLab('3b');">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-3b">
+      <h2 class="lab-title">Hands-On Build, Part 1 – Option 2</h2>
+      <p class="lab-subtitle">Plan first, then build: a Case Risk Health widget for a case management scenario.</p>
+
+      <h3>What you're building</h3>
+      <p>A <strong>Case Risk Health</strong> widget: a formula field and Lightning web component that gives case managers a quick visual read on case urgency, covering scenarios like benefits eligibility, public assistance, licensing, or public-safety cases. You'll plan it first, build it one piece at a time, preview it against a real record, and iterate on the design.</p>
+
+      <h3>Step 0: Plan before building</h3>
+      <div class="step"><span class="step-num">1.</span><span>Switch Agentforce Vibes to <strong>Planning Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Before writing any code, switch to planning mode. Here's what we're building: a Case Risk Health widget for a state/local government case management demo.
+
+Case managers need a quick visual way to judge case urgency when viewing a Case record, covering scenarios like benefits eligibility, public assistance, licensing, or public-safety cases.
+
+The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scores 0-100 based on Priority, Days Open, and an at-risk population flag; (2) a Lightning Web Component called caseRiskHealth on the Case record page that displays the score with a status badge; (3) a preview using a real Case record; (4) iteration on the visual design. Give me a high-level summary of your plan and the files/metadata you expect to create or modify before you start building.</div>
+      </div>
+      <div class="step"><span class="step-num">3.</span><span>Read the plan Vibes sends back. It will describe what it intends to build, it won't write any code yet.</span></div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Planning Mode is a review checkpoint, not a build step. Vibes responds with a plan for you to read and narrate, not working metadata. The actual build happens in Steps 1-4 below, one prompt at a time.</div>
+
+      <h3>Step 1: Create the formula field</h3>
+      <div class="substep"><strong>Field Name:</strong> Case Risk Score</div>
+      <div class="substep"><strong>API Name:</strong> <code>Case_Risk_Score__c</code></div>
+      <div class="substep"><strong>Type:</strong> Number formula, 0-100</div>
+      <div class="substep"><strong>Object:</strong> Case</div>
+      <div class="substep">Scoring rules: High Priority starts at 70, Medium at 50, Low at 30</div>
+      <div class="substep">Add 15 if Days Open is greater than 30 (SLA breach risk)</div>
+      <div class="substep">Add 10 if the case is flagged for an at-risk population</div>
+      <div class="substep">Subtract 20 if Status is Resolved or Closed</div>
+      <div class="substep">Cap the result with <code>MIN(100, MAX(0, ...))</code></div>
+      <div class="substep">Also update the Case Management permission set to grant field-level read access to this new field</div>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Create a Case formula field called Case Risk Score (API name Case_Risk_Score__c), a Number field with 0-100 range. Scoring logic: start at 70 if Priority is High, 50 if Medium, 30 if Low. Add 15 if the case has been open more than 30 days. Add 10 if the case is flagged as an at-risk population case. Subtract 20 if Status is Resolved or Closed. Cap the final score between 0 and 100 using MIN/MAX. Then update the Case Management permission set to grant field-level read access to this new field. Deploy the changes.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+
+      <h3>Step 2: Build the Case record page component</h3>
+      <div class="substep"><strong>Component name:</strong> <code>caseRiskHealth</code></div>
+      <div class="substep"><strong>Target page:</strong> Case record page</div>
+      <div class="substep"><strong>Displays:</strong> Case Number, Type, Priority, Status, <code>Case_Risk_Score__c</code></div>
+      <div class="substep"><strong>Status bands:</strong> 80-100 Critical, 60-79 Elevated, 40-59 Monitor, below 40 Stable</div>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Build a Lightning Web Component called caseRiskHealth for the Case record page. Use Lightning Data Service to load Case Number, Type, Priority, Status, and Case_Risk_Score__c. Display a compact health card with SLDS styling: a badge or progress bar showing the score, and a status label based on these bands: 80-100 Critical, 60-79 Elevated, 40-59 Monitor, below 40 Stable. Include a helper message explaining the status. If no score is available, show the empty state message "No risk score available." Make it feel like a compact Service Cloud card. Deploy the component after building it.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+
+      <h3>Step 3: Preview with a real record</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Preview the caseRiskHealth component. If Component Preview doesn't automatically provide a recordId, query the org for a real Case using SOQL (SELECT Id FROM Case LIMIT 1) and use that Id for the preview context. Don't hard-code or invent a Case Id.</div>
+      </div>
+      <div class="callout callout-why"><span class="callout-label">Why this matters</span>Previewing against a real record, queried live rather than guessed, is the same habit worth carrying into your own org's data governance practices.</div>
+
+      <h3>Step 4: Iterate on the design</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste each prompt below one at a time, reviewing the result before moving to the next.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">The risk score badge is hard to read at a glance. Make the score more visually prominent, like a large colored badge instead of small text.</div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">The empty state message doesn't explain why the score is missing. Update it to say something like "No risk score available, this Case may be missing Priority or Status data."</div>
+      </div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">The card styling doesn't match our other Service Cloud components. Tighten the padding and align the fonts with SLDS card conventions.</div>
+      </div>
+
+      <h3>Summary</h3>
+      <p>You planned before building, then built a formula field and a Lightning web component one piece at a time, previewed it against a real record, and iterated on the design based on feedback. This is the same loop as Option 1, frame the outcome, build in a thin slice, test from real evidence, and iterate, just applied to a case management scenario instead of a facility tracker.</p>
+    </div>
+  </div>
+
   <div class="lab-card is-tbd" id="lab-4">
     <div class="lab-head" onclick="toggleLab(4)">
       <div class="lab-number">4</div>
