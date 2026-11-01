@@ -303,63 +303,6 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
     </div>
     <div class="lab-body" id="body-3">
       <h2 class="lab-title">Hands-On Build, Part 1 – Option 1</h2>
-      <p class="lab-subtitle">Describe what you want, and build it with Agentforce Vibes.</p>
-
-      <h3>What you're building</h3>
-      <p>A <strong>Facility Inspection</strong> tracker: a simple object for logging site visits, safety checks, or compliance reviews. You'll describe it, add some sample data, ask a question about it, and document it, all in plain language.</p>
-
-      <h3>Step 1: Build the object</h3>
-      <div class="step"><span class="step-num">1.</span><span>Open the Agentforce Vibes chat and paste the prompt below.</span></div>
-      <div class="prompt-block">
-        <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Create a custom object called Facility Inspection to track inspections of buildings and sites. It should have these fields: Site Name (text), Inspection Type (picklist: Health and Sanitation, Fire and Safety, Building Systems, Other), Scheduled Date (date), Inspector (text), Status (picklist: Scheduled, In Progress, Passed, Failed, Follow-Up Required), and Notes (long text area). Add it to a tab so I can see it in the app.</div>
-      </div>
-      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
-      <div class="step"><span class="step-num">3.</span><span>Open the Salesforce org you're connected to. It may already be open in another tab; if not, click the monitor icon in the status bar at the bottom of the IDE.</span></div>
-      <div class="step"><span class="step-num">4.</span><span>Open the <strong>Facility Inspection</strong> tab to confirm it's there.</span></div>
-
-      <h3>Step 2: Add sample data</h3>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
-      <div class="prompt-block">
-        <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Generate 8 sample Facility Inspection records with a realistic mix of Inspection Types and Statuses. Include at least 3 records with a Status of Failed or Follow-Up Required, and spread the Scheduled Date values across the last 30 days. Use generic site names like "Building A" or "Main Street Site" rather than real addresses.</div>
-      </div>
-      <div class="step"><span class="step-num">2.</span><span>Approve the records, then open a few to check them.</span></div>
-
-      <h3>Step 3: Ask a question</h3>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
-      <div class="prompt-block">
-        <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Show me all Facility Inspection records where the Status is Failed or Follow-Up Required, sorted by Scheduled Date with the oldest first. Build this as a list view I can come back to.</div>
-      </div>
-      <div class="step"><span class="step-num">2.</span><span>Open the new list view from the Facility Inspection tab.</span></div>
-
-      <h3>Step 4: Document it</h3>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
-      <div class="prompt-block">
-        <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Write a short, plain-language summary of the Facility Inspection object, its fields, and the list view I just created. Write it so a coworker who wasn't in this session could understand what it's for and how to use it.</div>
-      </div>
-      <div class="step"><span class="step-num">2.</span><span>Read the summary Vibes writes back.</span></div>
-
-      <h3>Summary</h3>
-      <p>You built an object, added data, asked a question, and documented it, all by describing what you wanted. That's the whole loop: describe, review, approve.</p>
-    </div>
-  </div>
-
-  <div class="lab-card" id="lab-3b">
-    <div class="lab-head" onclick="toggleLab('3b')">
-      <div class="lab-number">3b</div>
-      <div class="lab-meta">
-        <p class="lab-name">Hands-On Build, Part 1 – Option 2</p>
-        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
-      </div>
-      <div class="lab-actions">
-        <button class="btn btn-toggle" id="toggle-3b" onclick="event.stopPropagation(); toggleLab('3b');">Preview ▾</button>
-      </div>
-    </div>
-    <div class="lab-body" id="body-3b">
-      <h2 class="lab-title">Hands-On Build, Part 1 – Option 2</h2>
       <p class="lab-subtitle">Plan first, then build: a Case Risk Health widget for a case management scenario.</p>
 
       <h3>What you're building</h3>
@@ -433,7 +376,64 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       </div>
 
       <h3>Summary</h3>
-      <p>You planned before building, then built a formula field and a Lightning web component one piece at a time, previewed it against a real record, and iterated on the design based on feedback. This is the same loop as Option 1, frame the outcome, build in a thin slice, test from real evidence, and iterate, just applied to a case management scenario instead of a facility tracker.</p>
+      <p>You planned before building, then built a formula field and a Lightning web component one piece at a time, previewed it against a real record, and iterated on the design based on feedback. This is the same loop as Option 2, frame the outcome, build in a thin slice, test from real evidence, and iterate, just applied to a case management scenario instead of a facility tracker.</p>
+    </div>
+  </div>
+
+  <div class="lab-card" id="lab-3b">
+    <div class="lab-head" onclick="toggleLab('3b')">
+      <div class="lab-number">3b</div>
+      <div class="lab-meta">
+        <p class="lab-name">Hands-On Build, Part 1 – Option 2</p>
+        <p class="lab-duration">11:10 AM – 12:00 PM · ~50 min</p>
+      </div>
+      <div class="lab-actions">
+        <button class="btn btn-toggle" id="toggle-3b" onclick="event.stopPropagation(); toggleLab('3b');">Preview ▾</button>
+      </div>
+    </div>
+    <div class="lab-body" id="body-3b">
+      <h2 class="lab-title">Hands-On Build, Part 1 – Option 2</h2>
+      <p class="lab-subtitle">Describe what you want, and build it with Agentforce Vibes.</p>
+
+      <h3>What you're building</h3>
+      <p>A <strong>Facility Inspection</strong> tracker: a simple object for logging site visits, safety checks, or compliance reviews. You'll describe it, add some sample data, ask a question about it, and document it, all in plain language.</p>
+
+      <h3>Step 1: Build the object</h3>
+      <div class="step"><span class="step-num">1.</span><span>Open the Agentforce Vibes chat and paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Create a custom object called Facility Inspection to track inspections of buildings and sites. It should have these fields: Site Name (text), Inspection Type (picklist: Health and Sanitation, Fire and Safety, Building Systems, Other), Scheduled Date (date), Inspector (text), Status (picklist: Scheduled, In Progress, Passed, Failed, Follow-Up Required), and Notes (long text area). Add it to a tab so I can see it in the app.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Open the Salesforce org you're connected to. It may already be open in another tab; if not, click the monitor icon in the status bar at the bottom of the IDE.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Open the <strong>Facility Inspection</strong> tab to confirm it's there.</span></div>
+
+      <h3>Step 2: Add sample data</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Generate 8 sample Facility Inspection records with a realistic mix of Inspection Types and Statuses. Include at least 3 records with a Status of Failed or Follow-Up Required, and spread the Scheduled Date values across the last 30 days. Use generic site names like "Building A" or "Main Street Site" rather than real addresses.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Approve the records, then open a few to check them.</span></div>
+
+      <h3>Step 3: Ask a question</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Show me all Facility Inspection records where the Status is Failed or Follow-Up Required, sorted by Scheduled Date with the oldest first. Build this as a list view I can come back to.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Open the new list view from the Facility Inspection tab.</span></div>
+
+      <h3>Step 4: Document it</h3>
+      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="prompt-block">
+        <div class="prompt-label">Prompt</div>
+        <div class="prompt-text">Write a short, plain-language summary of the Facility Inspection object, its fields, and the list view I just created. Write it so a coworker who wasn't in this session could understand what it's for and how to use it.</div>
+      </div>
+      <div class="step"><span class="step-num">2.</span><span>Read the summary Vibes writes back.</span></div>
+
+      <h3>Summary</h3>
+      <p>You built an object, added data, asked a question, and documented it, all by describing what you wanted. That's the whole loop: describe, review, approve.</p>
     </div>
   </div>
 
