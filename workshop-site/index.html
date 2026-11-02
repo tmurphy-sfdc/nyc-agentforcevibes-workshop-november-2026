@@ -19,6 +19,11 @@ body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
 .hero-fact { background: #f8f8f8; border: 1px solid #0053A0; border-radius: 8px; padding: 14px 20px; min-width: 180px; }
 .hero-fact .fact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #0053A0; font-weight: 700; margin-bottom: 4px; }
 .hero-fact .fact-value { font-size: 16px; font-weight: 600; color: #000; }
+a.hero-fact-cta { display: block; text-decoration: none; background: #ffb81c; border: 1px solid #000; border-radius: 8px; padding: 14px 20px; min-width: 180px; transition: background 0.15s, transform 0.15s; }
+a.hero-fact-cta:hover { background: #fff; transform: translateY(-2px); }
+a.hero-fact-cta .fact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #000; font-weight: 700; margin-bottom: 4px; }
+a.hero-fact-cta .fact-value { font-size: 16px; font-weight: 700; color: #000; }
+a.hero-fact-cta .fact-value::after { content: " →"; }
 @media (max-width: 760px) {
   .hero-logo { width: 104px; top: 8px; right: 8px; }
   .hero h1 { padding-right: 112px; }
@@ -100,6 +105,17 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-card.is-tbd .lab-number { background: #e5e5e5; color: #888; }
 .tbd-banner { background: #fef7ec; border-left: 3px solid #c17510; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #6b4a1a; }
 .tbd-banner strong { color: #c17510; }
+/* Idea slot machine */
+.lab-body .slot-machine { margin: 10px 0 18px 12px; background: #f8f9fb; border: 2px solid #0053A0; border-radius: 10px; padding: 18px 20px; }
+.lab-body .slot-reels { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.lab-body .slot-reel-col { flex: 1; min-width: 140px; }
+.lab-body .slot-reel-label { font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #666; margin-bottom: 4px; text-align: center; font-weight: 700; }
+.lab-body .slot-reel { background: #032D60; color: #fff; font-weight: 700; font-size: 14px; text-align: center; padding: 16px 10px; border-radius: 8px; border: 2px solid #1B96FF; min-height: 20px; }
+.lab-body .slot-spin-btn { background: #0053A0; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; }
+.lab-body .slot-spin-btn:hover { background: #032D60; }
+.lab-body .slot-spin-btn:disabled { opacity: 0.6; cursor: default; }
+.lab-body .idea-result { margin-top: 14px; }
+.lab-body .idea-sentence { font-size: 15px; font-weight: 700; color: #0053A0; margin-bottom: 8px; }
 footer { background: #032D60; color: #d8d8d8; padding: 24px; text-align: center; font-size: 13px; }
 footer .footer-accent { color: #1B96FF; font-weight: 700; }
 </style>
@@ -131,6 +147,10 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
         <div class="fact-label">Format</div>
         <div class="fact-value">Half-day, hands-on</div>
       </div>
+      <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener" class="hero-fact-cta">
+        <div class="fact-label">Get Started</div>
+        <div class="fact-value">Claim my org</div>
+      </a>
     </div>
   </div>
 </header>
@@ -436,7 +456,7 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
     </div>
   </div>
 
-  <div class="lab-card is-tbd" id="lab-3c">
+  <div class="lab-card" id="lab-3c">
     <div class="lab-head" onclick="toggleLab('3c')">
       <div class="lab-number">3c</div>
       <div class="lab-meta">
@@ -448,7 +468,53 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       </div>
     </div>
     <div class="lab-body" id="body-3c">
-      <div class="tbd-banner"><strong>Content in progress.</strong> This guide will be filled in before November 4.</div>
+      <h2 class="lab-title">Hands-On Build – Option 3</h2>
+      <p class="lab-subtitle">Open build time: explore, evaluate, or build with Agentforce Vibes, your way.</p>
+
+      <h3>What you're doing</h3>
+      <p>This track has no fixed script. It's your time to put Agentforce Vibes through its paces, in whatever direction is most useful to you. Pick one path below, or move between all three.</p>
+      <div class="step"><span class="step-num">•</span><span><strong>Explore:</strong> ask Agentforce Vibes questions about itself. What can it do? What MCP servers and tools does it have access to? How does Planning Mode compare to Act Mode?</span></div>
+      <div class="step"><span class="step-num">•</span><span><strong>Evaluate:</strong> point Agentforce Vibes at your own org. Ask it to describe an object, summarize a Flow, or explain a piece of configuration you've always wondered about.</span></div>
+      <div class="step"><span class="step-num">•</span><span><strong>Build:</strong> describe something you want built, a field, a component, a small app, and work through the plan, build, and preview loop on your own.</span></div>
+
+      <h3>Need a starting idea? Spin for one</h3>
+      <p>Not sure what to build? Pull the lever below. It combines a role, something they work with, and a capability into a quick use case you can hand straight to Agentforce Vibes.</p>
+
+      <div class="slot-machine">
+        <div class="slot-reels">
+          <div class="slot-reel-col">
+            <div class="slot-reel-label">Role</div>
+            <div class="slot-reel" id="reel-1">?</div>
+          </div>
+          <div class="slot-reel-col">
+            <div class="slot-reel-label">Works With</div>
+            <div class="slot-reel" id="reel-2">?</div>
+          </div>
+          <div class="slot-reel-col">
+            <div class="slot-reel-label">Capability</div>
+            <div class="slot-reel" id="reel-3">?</div>
+          </div>
+        </div>
+        <button class="slot-spin-btn" id="spin-btn" onclick="spinIdeaSlots()">🎲 Spin for an idea</button>
+        <div class="idea-result" id="idea-result" style="display:none">
+          <div class="idea-sentence" id="idea-sentence"></div>
+          <div class="prompt-block">
+            <div class="prompt-label">Prompt</div>
+            <div class="prompt-text" id="idea-prompt"></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>How to use it</h3>
+      <div class="step"><span class="step-num">1.</span><span>Spin the reels, or skip straight to your own idea.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste the generated prompt (or your own) into the Agentforce Vibes chat.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>Preview or test the result, then keep iterating: refine the ask, spin again, or try a different path above.</span></div>
+
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Spun combinations are a starting point, not a spec. Feel free to adjust details to fit your own agency's world before you paste the prompt in.</div>
+
+      <h3>Summary</h3>
+      <p>There's no single right way to spend this time. Whether you spent it asking questions, evaluating your own org, or building something new, the goal is the same: get comfortable describing what you want and letting Agentforce Vibes do the rest.</p>
     </div>
   </div>
 
@@ -470,6 +536,56 @@ function toggleLab(n) {
     body.classList.add('open');
     toggle.innerHTML = 'Collapse ▴';
   }
+}
+
+const slotRoles = ["Caseworker", "Inspector", "Permit Reviewer", "Program Manager", "Intake Coordinator", "Compliance Officer", "Dispatcher", "Grants Administrator"];
+const slotObjects = ["Applications", "Complaints", "Work Orders", "Inspections", "Service Requests", "Renewals", "Incident Reports", "Appointments"];
+const slotCapabilities = [
+  { label: "Risk Score", phrase: "a risk score that flags which ones need attention first" },
+  { label: "Plain-Language Summary", phrase: "a plain-language summary anyone on the team can understand" },
+  { label: "Backlog Dashboard", phrase: "a dashboard that spots backlogs before they become a problem" },
+  { label: "Priority List View", phrase: "a list view that surfaces the oldest open ones first" },
+  { label: "Natural-Language Q&A", phrase: "a natural-language way to ask questions about them" },
+  { label: "Status Badge", phrase: "a status badge that shows where things stand at a glance" },
+  { label: "Intake Flow", phrase: "a quick way to log and tag new ones as they come in" },
+  { label: "Data Health Check", phrase: "an automated check that flags missing or inconsistent information" }
+];
+
+function articleFor(word) {
+  return /^[aeiouAEIOU]/.test(word) ? "an" : "a";
+}
+
+function spinIdeaSlots() {
+  const reel1 = document.getElementById('reel-1');
+  const reel2 = document.getElementById('reel-2');
+  const reel3 = document.getElementById('reel-3');
+  const btn = document.getElementById('spin-btn');
+  btn.disabled = true;
+  let ticks = 0;
+  const maxTicks = 14;
+  const spin = setInterval(function () {
+    reel1.textContent = slotRoles[Math.floor(Math.random() * slotRoles.length)];
+    reel2.textContent = slotObjects[Math.floor(Math.random() * slotObjects.length)];
+    reel3.textContent = slotCapabilities[Math.floor(Math.random() * slotCapabilities.length)].label;
+    ticks++;
+    if (ticks >= maxTicks) {
+      clearInterval(spin);
+      const role = slotRoles[Math.floor(Math.random() * slotRoles.length)];
+      const object = slotObjects[Math.floor(Math.random() * slotObjects.length)];
+      const capability = slotCapabilities[Math.floor(Math.random() * slotCapabilities.length)];
+      reel1.textContent = role;
+      reel2.textContent = object;
+      reel3.textContent = capability.label;
+      const objectLower = object.toLowerCase();
+      const roleArticle = articleFor(role);
+      const sentence = roleArticle.charAt(0).toUpperCase() + roleArticle.slice(1) + " " + role + " working with " + objectLower + " needs " + capability.phrase + ".";
+      const prompt = "I'm " + roleArticle + " " + role + ", and I work with " + objectLower + ". Help me build " + capability.phrase + " for " + objectLower + ". Start in Planning Mode: give me a quick plan before you build anything, then build it one piece at a time so I can review as you go. Use generic, realistic sample data, not real records.";
+      document.getElementById('idea-sentence').textContent = sentence;
+      document.getElementById('idea-prompt').textContent = prompt;
+      document.getElementById('idea-result').style.display = 'block';
+      btn.disabled = false;
+    }
+  }, 80);
 }
 </script>
 
