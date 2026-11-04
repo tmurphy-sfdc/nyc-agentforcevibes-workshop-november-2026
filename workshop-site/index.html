@@ -24,6 +24,9 @@ a.hero-fact-cta:hover { background: #fff; transform: translateY(-2px); }
 a.hero-fact-cta .fact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #000; font-weight: 700; margin-bottom: 4px; }
 a.hero-fact-cta .fact-value { font-size: 16px; font-weight: 700; color: #000; }
 a.hero-fact-cta .fact-value::after { content: " →"; }
+.hero-cta-group { display: flex; flex-direction: column; gap: 6px; }
+.hero-event-code { font-size: 12px; color: #4a4a4a; text-align: center; }
+.hero-event-code strong { color: #0053A0; letter-spacing: 1px; }
 @media (max-width: 760px) {
   .hero-logo { width: 104px; top: 8px; right: 8px; }
   .hero h1 { padding-right: 112px; }
@@ -147,10 +150,13 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
         <div class="fact-label">Format</div>
         <div class="fact-value">Half-day, hands-on</div>
       </div>
-      <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener" class="hero-fact-cta">
-        <div class="fact-label">Get Started</div>
-        <div class="fact-value">Claim my org</div>
-      </a>
+      <div class="hero-cta-group">
+        <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener" class="hero-fact-cta">
+          <div class="fact-label">Get Started</div>
+          <div class="fact-value">Claim my org</div>
+        </a>
+        <div class="hero-event-code">Event code: <strong>G3HKRX0L</strong></div>
+      </div>
     </div>
   </div>
 </header>
@@ -187,7 +193,7 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
 
 <section id="labs">
   <h2 class="section-title">Workshop Guides</h2>
-  <p class="section-lede">These guides are meant to be followed inside the workshop org created for you. Go to <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener">orgfarm.salesforce.com/signup</a> and enter the event code (provided the day of the workshop when you arrive) to get access. Click Preview to expand a guide inline.</p>
+  <p class="section-lede">These guides are meant to be followed inside the workshop org created for you. Go to <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener">orgfarm.salesforce.com/signup</a> and enter event code <strong>G3HKRX0L</strong> to get access. Click Preview to expand a guide inline.</p>
 
   <div class="lab-card" id="lab-1">
     <div class="lab-head" onclick="toggleLab(1)">
