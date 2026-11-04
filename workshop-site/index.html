@@ -373,14 +373,16 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       <div class="step"><span class="step-num">3.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
 
       <h3>Step 3: Preview with a real record</h3>
-      <div class="callout callout-watch"><span class="callout-label">Work in progress</span>This step still needs to be clarified: the exact preview flow (where recordId comes from, what the facilitator should narrate if Component Preview doesn't auto-populate it) isn't fully nailed down yet.</div>
       <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Preview the caseRiskHealth component. If Component Preview doesn't automatically provide a recordId, query the org for a real Case using SOQL (SELECT Id FROM Case LIMIT 1) and use that Id for the preview context. Don't hard-code or invent a Case Id.</div>
+        <div class="prompt-text">Add the caseRiskHealth component to the Case record page layout. If you can't add it to the page layout directly, tell me exactly what to do manually in Setup: which page layout to edit, and where on the page to drop the component.</div>
       </div>
-      <div class="callout callout-why"><span class="callout-label">Why this matters</span>Previewing against a real record, queried live rather than guessed, is the same habit worth carrying into your own org's data governance practices.</div>
+      <div class="step"><span class="step-num">3.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+      <div class="step"><span class="step-num">4.</span><span>If Vibes couldn't add the component itself, add it manually: from a Case record, click the gear icon and select <strong>Edit Page</strong>, drag the <strong>caseRiskHealth</strong> component onto the page, then click <strong>Save</strong> and <strong>Activate</strong>.</span></div>
+      <div class="step"><span class="step-num">5.</span><span>Open a real Case record and confirm the component renders with a live score and status.</span></div>
+      <div class="callout callout-why"><span class="callout-label">Why this matters</span>Previewing in the actual Salesforce UI, on a real record, confirms the component truly works end to end: not just that the code compiles, but that it renders correctly on the page your users will actually see.</div>
 
       <h3>Step 4: Iterate on the design</h3>
       <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
