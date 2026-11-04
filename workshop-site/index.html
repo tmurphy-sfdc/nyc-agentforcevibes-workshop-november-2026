@@ -327,18 +327,18 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
       <p>A <strong>Case Risk Health</strong> widget: a formula field and Lightning web component that gives case managers a quick visual read on case urgency, covering scenarios like benefits eligibility, public assistance, licensing, or public-safety cases. You'll plan it first, build it one piece at a time, preview it against a real record, and iterate on the design.</p>
 
       <h3>Step 0: Plan before building</h3>
-      <div class="step"><span class="step-num">1.</span><span>Switch Agentforce Vibes to <strong>Planning Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Switch Agentforce Vibes to <strong>Plan Mode</strong>.</span></div>
       <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
-        <div class="prompt-text">Before writing any code, switch to planning mode. Here's what we're building: a Case Risk Health widget for a state/local government case management demo.
+        <div class="prompt-text">Before writing any code, switch to plan mode. Here's what we're building: a Case Risk Health widget for a state/local government case management demo.
 
 Case managers need a quick visual way to judge case urgency when viewing a Case record, covering scenarios like benefits eligibility, public assistance, licensing, or public-safety cases.
 
 The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scores 0-100 based on Priority, Days Open, and an at-risk population flag; (2) a Lightning Web Component called caseRiskHealth on the Case record page that displays the score with a status badge; (3) a preview using a real Case record; (4) iteration on the visual design. Give me a high-level summary of your plan and the files/metadata you expect to create or modify before you start building.</div>
       </div>
       <div class="step"><span class="step-num">3.</span><span>Read the plan Vibes sends back. It will describe what it intends to build, it won't write any code yet.</span></div>
-      <div class="callout callout-tip"><span class="callout-label">Tip</span>Planning Mode is a review checkpoint, not a build step. Vibes responds with a plan for you to read and narrate, not working metadata. The actual build happens in Steps 1-4 below, one prompt at a time.</div>
+      <div class="callout callout-tip"><span class="callout-label">Tip</span>Plan Mode is a review checkpoint, not a build step. Vibes responds with a plan for you to read and narrate, not working metadata. Once you approve a plan, Vibes automatically switches back to Chat Mode, so you'll need to switch back to Plan Mode before each new prompt below.</div>
 
       <h3>Step 1: Create the formula field</h3>
       <div class="substep"><strong>Field Name:</strong> Case Risk Score</div>
@@ -351,28 +351,31 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       <div class="substep">Subtract 20 if Status is Resolved or Closed</div>
       <div class="substep">Cap the result with <code>MIN(100, MAX(0, ...))</code></div>
       <div class="substep">Also update the Case Management permission set to grant field-level read access to this new field</div>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
         <div class="prompt-text">Create a Case formula field called Case Risk Score (API name Case_Risk_Score__c), a Number field with 0-100 range. Scoring logic: start at 70 if Priority is High, 50 if Medium, 30 if Low. Add 15 if the case has been open more than 30 days. Add 10 if the case is flagged as an at-risk population case. Subtract 20 if Status is Resolved or Closed. Cap the final score between 0 and 100 using MIN/MAX. Then update the Case Management permission set to grant field-level read access to this new field. Deploy the changes.</div>
       </div>
-      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
 
       <h3>Step 2: Build the Case record page component</h3>
       <div class="substep"><strong>Component name:</strong> <code>caseRiskHealth</code></div>
       <div class="substep"><strong>Target page:</strong> Case record page</div>
       <div class="substep"><strong>Displays:</strong> Case Number, Type, Priority, Status, <code>Case_Risk_Score__c</code></div>
       <div class="substep"><strong>Status bands:</strong> 80-100 Critical, 60-79 Elevated, 40-59 Monitor, below 40 Stable</div>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
         <div class="prompt-text">Build a Lightning Web Component called caseRiskHealth for the Case record page. Use Lightning Data Service to load Case Number, Type, Priority, Status, and Case_Risk_Score__c. Display a compact health card with SLDS styling: a badge or progress bar showing the score, and a status label based on these bands: 80-100 Critical, 60-79 Elevated, 40-59 Monitor, below 40 Stable. Include a helper message explaining the status. If no score is available, show the empty state message "No risk score available." Make it feel like a compact Service Cloud card. Deploy the component after building it.</div>
       </div>
-      <div class="step"><span class="step-num">2.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
+      <div class="step"><span class="step-num">3.</span><span>Review the plan Vibes proposes, then approve it.</span></div>
 
       <h3>Step 3: Preview with a real record</h3>
       <div class="callout callout-watch"><span class="callout-label">Work in progress</span>This step still needs to be clarified: the exact preview flow (where recordId comes from, what the facilitator should narrate if Component Preview doesn't auto-populate it) isn't fully nailed down yet.</div>
-      <div class="step"><span class="step-num">1.</span><span>Paste the prompt below.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
         <div class="prompt-text">Preview the caseRiskHealth component. If Component Preview doesn't automatically provide a recordId, query the org for a real Case using SOQL (SELECT Id FROM Case LIMIT 1) and use that Id for the preview context. Don't hard-code or invent a Case Id.</div>
@@ -380,7 +383,8 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       <div class="callout callout-why"><span class="callout-label">Why this matters</span>Previewing against a real record, queried live rather than guessed, is the same habit worth carrying into your own org's data governance practices.</div>
 
       <h3>Step 4: Iterate on the design</h3>
-      <div class="step"><span class="step-num">1.</span><span>Paste each prompt below one at a time, reviewing the result before moving to the next.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>.</span></div>
+      <div class="step"><span class="step-num">2.</span><span>Paste each prompt below one at a time, reviewing the result before moving to the next.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
         <div class="prompt-text">The risk score badge is hard to read at a glance. Make the score more visually prominent, like a large colored badge instead of small text.</div>
@@ -418,7 +422,7 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
       <p>A <strong>Facility Inspection</strong> tracker: a simple object for logging site visits, safety checks, or compliance reviews. You'll describe it, add some sample data, ask a question about it, and document it, all in plain language.</p>
 
       <h3>Step 1: Build the object</h3>
-      <div class="step"><span class="step-num">1.</span><span>Open the Agentforce Vibes chat and paste the prompt below.</span></div>
+      <div class="step"><span class="step-num">1.</span><span>Make sure you're in <strong>Plan Mode</strong>, then open the Agentforce Vibes chat and paste the prompt below.</span></div>
       <div class="prompt-block">
         <div class="prompt-label">Prompt</div>
         <div class="prompt-text">Create a custom object called Facility Inspection to track inspections of buildings and sites. It should have these fields: Site Name (text), Inspection Type (picklist: Health and Sanitation, Fire and Safety, Building Systems, Other), Scheduled Date (date), Inspector (text), Status (picklist: Scheduled, In Progress, Passed, Failed, Follow-Up Required), and Notes (long text area). Add it to a tab so I can see it in the app.</div>
@@ -473,7 +477,7 @@ The plan has four parts: (1) a Case formula field, Case_Risk_Score__c, that scor
 
       <h3>What you're doing</h3>
       <p>This track has no fixed script. It's your time to put Agentforce Vibes through its paces, in whatever direction is most useful to you. Pick one path below, or move between all three.</p>
-      <div class="step"><span class="step-num">•</span><span><strong>Explore:</strong> ask Agentforce Vibes questions about itself. What can it do? What MCP servers and tools does it have access to? How does Planning Mode compare to Act Mode?</span></div>
+      <div class="step"><span class="step-num">•</span><span><strong>Explore:</strong> ask Agentforce Vibes questions about itself. What can it do? What MCP servers and tools does it have access to? How does Plan Mode compare to Chat Mode?</span></div>
       <div class="step"><span class="step-num">•</span><span><strong>Evaluate:</strong> point Agentforce Vibes at your own org. Ask it to describe an object, summarize a Flow, or explain a piece of configuration you've always wondered about.</span></div>
       <div class="step"><span class="step-num">•</span><span><strong>Build:</strong> describe something you want built, a field, a component, a small app, and work through the plan, build, and preview loop on your own.</span></div>
 
@@ -579,7 +583,7 @@ function spinIdeaSlots() {
       const objectLower = object.toLowerCase();
       const roleArticle = articleFor(role);
       const sentence = roleArticle.charAt(0).toUpperCase() + roleArticle.slice(1) + " " + role + " working with " + objectLower + " needs " + capability.phrase + ".";
-      const prompt = "I'm " + roleArticle + " " + role + ", and I work with " + objectLower + ". Help me build " + capability.phrase + " for " + objectLower + ". Start in Planning Mode: give me a quick plan before you build anything, then build it one piece at a time so I can review as you go. Use generic, realistic sample data, not real records.";
+      const prompt = "I'm " + roleArticle + " " + role + ", and I work with " + objectLower + ". Help me build " + capability.phrase + " for " + objectLower + ". Start in Plan Mode: give me a quick plan before you build anything, then build it one piece at a time so I can review as you go. Use generic, realistic sample data, not real records.";
       document.getElementById('idea-sentence').textContent = sentence;
       document.getElementById('idea-prompt').textContent = prompt;
       document.getElementById('idea-result').style.display = 'block';
