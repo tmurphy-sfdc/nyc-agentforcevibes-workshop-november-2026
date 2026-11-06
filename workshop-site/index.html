@@ -124,6 +124,20 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .idea-sentence { font-size: 15px; font-weight: 700; color: #0053A0; margin-bottom: 8px; }
 footer { background: #032D60; color: #d8d8d8; padding: 24px; text-align: center; font-size: 13px; }
 footer .footer-accent { color: #1B96FF; font-weight: 700; }
+/* Thank You */
+.thankyou-banner { background: #f0f7ed; border: 1px solid #4a893b; border-radius: 10px; padding: 18px 22px; margin-bottom: 20px; font-size: 15px; color: #2a4e23; }
+.thankyou-banner strong { color: #2a6e23; }
+.thankyou-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.thankyou-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 18px 20px; }
+.thankyou-card h3 { font-size: 15px; color: #000; margin: 0 0 6px; }
+.thankyou-card p { font-size: 14px; color: #4a4a4a; margin: 0; }
+.thankyou-card a { color: #0053A0; text-decoration: none; border-bottom: 1px dotted #0053A0; }
+.thankyou-card a:hover { color: #003d7a; border-bottom-color: #003d7a; }
+.thankyou-card .thankyou-expiry { color: #a35029; font-weight: 700; }
+.thankyou-steps { list-style: none; padding: 0; margin: 4px 0 0; }
+.thankyou-steps li { display: flex; align-items: flex-start; gap: 10px; margin: 10px 0; font-size: 14px; color: #4a4a4a; }
+.thankyou-steps .thankyou-step-num { background: #032D60; color: #1B96FF; font-weight: 800; font-size: 13px; width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.thankyou-steps code { background: #f0f3f8; border: 1px solid #d8dfe8; border-radius: 4px; padding: 1px 6px; font-weight: 700; color: #0053A0; font-family: "SFMono-Regular", Consolas, monospace; }
 </style>
 </head>
 <body>
@@ -167,12 +181,39 @@ footer .footer-accent { color: #1B96FF; font-weight: 700; }
 
 <nav class="topnav">
   <ul>
+    <li><a href="#thankyou">Thank You</a></li>
     <li><a href="#agenda">Agenda</a></li>
     <li><a href="#labs">Workshop Guides</a></li>
   </ul>
 </nav>
 
 <main>
+
+<section id="thankyou">
+  <h2 class="section-title">Thank You</h2>
+  <p class="section-lede">The workshop wrapped on November 4, 2026. Thank you for joining us, and congratulations on everything you built. Please see below for more information on accessing your org, continuing your Salesforce learning, and how to reach out if you have questions.</p>
+  <div class="thankyou-banner"><strong>This site isn't going anywhere.</strong> Every lab guide, the agenda, and the resources below stay live. Bookmark this page and come back any time you want to remind yourself how something was built. Your workshop org is also still yours, through <span class="thankyou-expiry">November 30, 2026</span>, so keep building on it, extend something further, or show it to a colleague before it expires.</div>
+  <div class="thankyou-grid">
+    <div class="thankyou-card">
+      <h3>Logging Back In</h3>
+      <ol class="thankyou-steps">
+        <li><span class="thankyou-step-num">1</span><span>Go to <a href="https://orgfarm.salesforce.com/signup" target="_blank" rel="noopener">orgfarm.salesforce.com/signup</a>.</span></li>
+        <li><span class="thankyou-step-num">2</span><span>Enter the event code <code>G3HKRX0L</code> (case-sensitive).</span></li>
+        <li><span class="thankyou-step-num">3</span><span>Enter the email address you used to sign up for your org.</span></li>
+        <li><span class="thankyou-step-num">4</span><span>Click the blue <strong>Access Org</strong> button.</span></li>
+        <li><span class="thankyou-step-num">5</span><span>Check your email for a link, click it, and you're logged in.</span></li>
+      </ol>
+    </div>
+    <div class="thankyou-card">
+      <h3>Continued learning</h3>
+      <p>Trailhead is Salesforce's free learning platform. We've put together <a href="https://trailhead.salesforce.com/users/h4ccz3afq7q00uerpi/trailmixes/intro-to-agentforce-vibes" target="_blank" rel="noopener">a set of trails on Agentforce Vibes</a> as a good jumping-off point, and there's a lot more on the platform beyond it if you want to keep going at your own pace.</p>
+    </div>
+    <div class="thankyou-card">
+      <h3>Questions?</h3>
+      <p>We're here if anything comes up as you use what you built, or if you want to talk through a use case for your team. Reach out any time: <a href="mailto:t.murphy@salesforce.com">t.murphy@salesforce.com</a>.</p>
+    </div>
+  </div>
+</section>
 
 <section id="agenda">
   <h2 class="section-title">Agenda</h2>
